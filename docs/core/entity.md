@@ -65,7 +65,7 @@ func (p *Page) ToRecord() *models.Record {
 
 ## 💾 Save or Delete
 
-With an active `CoreServices` instance:
+With an active `AppServices` instance:
 
 ```go
 page := &Page{Title: "About", Slug: "about", Content: "Hello!"}

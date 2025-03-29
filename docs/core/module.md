@@ -22,7 +22,7 @@ type Module interface {
     Key() string
     Name() string
     Description() string
-    Init(*CoreServices) error
+    Init(*AppServices) error
     Migrate() error
     Update() error
     RegisterRoutes(e *echo.Echo)
@@ -77,7 +77,7 @@ func (m *PagesModule) Key() string { return "pages" }
 func (m *PagesModule) Name() string { return "Pages" }
 func (m *PagesModule) Description() string { return "Public CMS pages" }
 
-func (m *PagesModule) Init(s *core.CoreServices) error { return nil }
+func (m *PagesModule) Init(s *core.AppServices) error { return nil }
 func (m *PagesModule) Migrate() error {
     return core.Services().Permissions.LoadFromYAML("modules/pages/permissions.yaml")
 }

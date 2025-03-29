@@ -9,7 +9,7 @@ Jobs can be registered by modules and will automatically run on a defined interv
 ## ✅ Features
 
 - Register recurring jobs with cron expressions
-- Automatically injects `CoreServices` into jobs
+- Automatically injects `AppServices` into jobs
 - Built-in logging (start, finish, panic recovery)
 - Run jobs on a schedule or on-demand by name
 
@@ -18,7 +18,7 @@ Jobs can be registered by modules and will automatically run on a defined interv
 ## 🧱 Usage Example
 
 ```go
-func ClearCache(s *core.CoreServices) {
+func ClearCache(s *core.AppServices) {
     s.Cache.InvalidateTags("tag:homepage")
     s.Logger.Info().Msg("Homepage cache cleared")
 }
@@ -68,10 +68,10 @@ You do not need to manually log these unless you want more context.
 
 ## 🔐 Access to Core Services
 
-Each job handler receives a pointer to the app’s `CoreServices`:
+Each job handler receives a pointer to the app’s `AppServices`:
 
 ```go
-func Cleanup(s *core.CoreServices) {
+func Cleanup(s *core.AppServices) {
     s.Logger.Info().Msg("Cleaning up...")
 }
 ```

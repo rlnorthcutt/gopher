@@ -12,7 +12,7 @@ type Module interface {
 	Name() string                        // Human-readable display name
 	Description() string                 // Short summary for UI or logging
 
-	Init(services *CoreServices) error   // Called during app boot
+	Init(services *AppServices) error   // Called during app boot
 	RegisterRoutes(e *echo.Echo)         // Hook for HTTP route setup
 	Migrate() error                      // Create DB schema or seed data
 	Update() error                       // Update schema or config (e.g. on deploy)
@@ -46,7 +46,7 @@ func Disable(key string) {
 }
 
 // InitAll initializes, registers routes, and hooks jobs for all enabled modules.
-func InitAll(services *CoreServices) error {
+func InitAll(services *AppServices) error {
 	for _, key := range registry.order {
 		m := registry.modules[key]
 		services.Logger.Info().

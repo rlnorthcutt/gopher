@@ -12,7 +12,7 @@ All core service documentation lives in `docs/core/`, organized by filename and 
 
 | Module         | Description |
 |----------------|-------------|
-| [appcontext](core/appcontext.md)   | CoreServices struct, shared app state |
+| [appcontext](core/appservices.md)   | AppServices struct, shared app state |
 | [bootstrap](core/bootstrap.md)     | Initializes the full framework runtime |
 | [cache](core/cache.md)             | In-memory caching with tag support |
 | [config](core/config.md)           | Environment-based app configuration |

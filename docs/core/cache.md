@@ -21,7 +21,7 @@ The cache is initialized in `core/bootstrap.go`:
 cache := core.NewCache()
 ```
 
-It is then registered into the `CoreServices` struct:
+It is then registered into the `AppServices` struct:
 
 ```go
 services.Cache.Set("homepage", html, 5*time.Minute)

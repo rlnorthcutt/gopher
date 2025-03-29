@@ -6,14 +6,14 @@ import (
 	"github.com/go-co-op/gocron"
 )
 
-type JobFunc func(*CoreServices)
+type JobFunc func(*AppServices)
 
 type JobScheduler struct {
 	scheduler *gocron.Scheduler
-	services  *CoreServices
+	services  *AppServices
 }
 
-func NewJobScheduler(services *CoreServices) *JobScheduler {
+func NewJobScheduler(services *AppServices) *JobScheduler {
 	s := gocron.NewScheduler(time.UTC)
 	return &JobScheduler{
 		scheduler: s,

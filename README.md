@@ -61,7 +61,7 @@ services.Cache.Set("blog:/home", html, 5*time.Minute)
 
 ```bash
 core/
-├── appcontext.go       # CoreServices struct and global wiring
+├── appservices.go     # AppServices struct and global wiring
 ├── bootstrap.go        # Bootstraps the app and core systems
 ├── cache.go            # Ristretto cache wrapper + tagging
 ├── config.go           # Environment and config loading
@@ -82,20 +82,20 @@ core/
 
 ## 📚 Documentation
 
-- [core/appcontext.go](docs/appcontext.md)
-- [core/bootstrap.go](docs/bootstrap.md)
-- [core/cache.go](docs/cache.md)
-- [core/config.go](docs/config.md)
-- [core/data.go](docs/data.md)
-- [core/entity.go](docs/entity.md)
-- [core/file.go](docs/file.md)
-- [core/jobs.go](docs/jobs.md)
-- [core/module.go](docs/module.md)
-- [core/observability.go](docs/observability.md)
-- [core/pb.go](docs/pb.md)
-- [core/permissions.go](docs/permissions.md)
-- [core/render.go](docs/render.md)
-- [core/router.go](docs/router.md)
+- [core/appcontext.go](docs/core/appservices.md)
+- [core/bootstrap.go](docs/core/bootstrap.md)
+- [core/cache.go](docs/core/cache.md)
+- [core/config.go](docs/core/config.md)
+- [core/data.go](docs/core/data.md)
+- [core/entity.go](docs/core/entity.md)
+- [core/file.go](docs/core/file.md)
+- [core/jobs.go](docs/core/jobs.md)
+- [core/module.go](docs/core/module.md)
+- [core/observability.go](docs/core/observability.md)
+- [core/pb.go](docs/core/pb.md)
+- [core/permissions.go](docs/core/permissions.md)
+- [core/render.go](docs/core/render.md)
+- [core/router.go](docs/core/router.md)
 
 Want to generate the first docs page next? (e.g. `docs/cache.md` or `docs/render.md`?)
 

@@ -15,7 +15,7 @@ func (m *PagesModule) Key() string        { return "pages" }
 func (m *PagesModule) Name() string       { return "Pages" }
 func (m *PagesModule) Description() string { return "Provides support for public pages from the database." }
 
-func (m *PagesModule) Init(services *core.CoreServices) error {
+func (m *PagesModule) Init(services *core.AppServices) error {
 	return nil // Nothing to do at init
 }
 

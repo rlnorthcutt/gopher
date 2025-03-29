@@ -1,4 +1,3 @@
-// core/cache.go
 package core
 
 import (

@@ -7,8 +7,8 @@ import (
 	"go.opentelemetry.io/otel/trace"
 )
 
-// CoreServices contains all shared systems used across the application.
-type CoreServices struct {
+// AppServices contains all shared systems used across the application.
+type AppServices struct {
 	Echo        *echo.Echo
 	PB          *pocketbase.PocketBase
 	Logger      zerolog.Logger
@@ -28,14 +28,14 @@ func New(
 	config *Config,
 	cache *Cache,
 	jobs *JobScheduler,
-) *CoreServices {
+) *AppServices {
 	data := NewDataService(pb)
 	permissions := NewPermissionsManager(pb)
 
 	// Register entity runtime for global Save/Delete access
 	RegisterEntityRuntime(data)
 
-	return &CoreServices{
+	return &AppServices{
 		Echo:        echo,
 		PB:          pb,
 		Logger:      logger,

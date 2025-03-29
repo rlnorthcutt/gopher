@@ -5,8 +5,8 @@ import (
 	"github.com/pocketbase/pocketbase"
 )
 
-// Bootstrap initializes the core application and returns Echo + CoreServices.
-func Bootstrap() (*echo.Echo, *CoreServices, error) {
+// Bootstrap initializes the core application and returns Echo + AppServices.
+func Bootstrap() (*echo.Echo, *AppServices, error) {
 	// Load config
 	config := LoadConfig()
 
@@ -26,7 +26,7 @@ func Bootstrap() (*echo.Echo, *CoreServices, error) {
 	cache := NewCache()
 	jobs := NewJobScheduler(nil)
 
-	// Build CoreServices
+	// Build AppServices
 	services := New(e, pb, logger, tracer, config, cache, jobs)
 	jobs.services = services // Inject services into JobScheduler
 

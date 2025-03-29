@@ -43,7 +43,7 @@ func main() {
 ## 🧠 Internals
 
 ```go
-func Bootstrap() (*echo.Echo, *CoreServices, error) {
+func Bootstrap() (*echo.Echo, *AppServices, error) {
   config := LoadConfig()
   logger := SetupLogger(config.AppName)
   tracer, _ := SetupTracer(config.AppName)
