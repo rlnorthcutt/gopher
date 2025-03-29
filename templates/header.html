@@ -1,0 +1,56 @@
+{{ define "header" }}
+<header>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" class="logo">Meta<span>Scribe</span></a>
+            </li>
+        </ul>
+        <ul>
+
+            <li><a href="#features" class="contrast">Features</a></li>
+            <li><a href="#pricing" class="contrast">Pricing</a></li>
+            <li><a href="#testimonials" class="contrast">Testimonials</a></li>
+            <li><button class="outline"
+                    hx-on:click="document.getElementById('login').setAttribute('open', '')">Login</button></li>
+        </ul>
+    </nav>
+</header>
+
+<dialog id="login" x-data="{ open: false }" :open="open">
+    <article>
+        <header>
+            <button aria-label="Close" rel="prev"
+                hx-on:click="document.getElementById('login').removeAttribute('open')">
+            </button>
+            <p>
+                <strong>Login</strong>
+            </p>
+        </header>
+        <div id="login-options">
+            <p>Login with your Google account.</p>
+            <a href="YOUR_GOOGLE_AUTH_ENDPOINT" class="google-auth-button">
+                <img src="google-logo.png" alt="Google Logo">
+                <span>Sign in with Google</span>
+            </a>
+
+            <hr>
+
+            <p>Or, receive a magic link via email:</p>
+            <form id="passwordless-form" hx-post="/auth/passwordless/request-login" hx-trigger="submit"
+                hx-target="#login-options" hx-swap="innerHTML"
+                hx-on::htmx:afterSwap="setTimeout(() => document.getElementById('login').removeAttribute('open'), 5000)">
+
+                <label for="email">Enter your email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <button type="submit">Send Magic Link</button>
+            </form>
+        </div>
+
+        <p id="error-message" class="error" style="color: red;"></p>
+    </article>
+</dialog>
+
+
+{{ end }}

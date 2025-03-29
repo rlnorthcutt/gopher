@@ -1,0 +1,36 @@
+{{ define "FeatureCard" }}
+<article class="feature">
+    <div class="icon">{{ .Icon }}</div>
+    <h3>{{ .Title }}</h3>
+    <p>{{ .Description }}</p>
+</article>
+{{ end }}
+
+{{ define "PricingCard" }}
+<article class="pricing {{ if .Popular }}popular{{ end }}">
+    <header class="center">
+        {{ if .Popular }}
+        <strong class="primary">Most Popular</strong>
+        {{ end }}
+        <h3>{{ .PlanName }}</h3>
+    </header>
+    <h4>{{ .Price }} <span>/month</span></h4>
+    <ul class="features">
+        {{ range .Features }}
+        <li>{{ . }}</li>
+        {{ end }}
+    </ul>
+    <footer class="center">
+        <button class="outline">{{ .CTAText }}</button>
+    </footer>
+</article>
+{{ end }}
+
+{{ define "TestimonialCard" }}
+<article class="testimonial">
+    <p>"{{ .Text }}"</p>
+    <footer>
+        <cite>— {{ .Author }}</cite>
+    </footer>
+</article>
+{{ end }}
